@@ -148,4 +148,4 @@ for frame_inx in tqdm(range(len(data))):
     i+=1
     j+=1
 
-torch.save([torch.stack(frames_tensor).to_sparse(), torch.stack(label_tensor).to_sparse()], f"frames_with_labels/{nr}.pt")
+torch.save([torch.stack(frames_tensor).to_sparse().coalesce(), torch.stack(label_tensor).to_sparse().coalesce()], f"frames_with_labels/{nr}.pt")
